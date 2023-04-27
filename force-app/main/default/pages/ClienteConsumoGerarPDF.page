@@ -1,0 +1,13 @@
+<apex:page renderAs="pdf" standardController="Consumo__c" extensions="FaturaController">
+    <div style="text-align:center;">
+        <apex:image url="{!$Resource.logoATET}" alt="Logo ATET" style="width: 120px; height: 90px;" />
+    </div>
+    <tbody>
+        <apex:repeat value="{!consumoLista}" var="cli">
+            <tr style="border-bottom: 1px solid #ccc; font-size: 16px; color: #5b5b5b; font-family: 'Open Sans', sans-serif;">
+                <td style="padding: 10px; text-align: left;"></td>
+                <td style="padding: 10px; text-align: right;">Data: {!cli.DataConsumo__c} Quantidade: {!cli.Quantidade__c}{!cli.Medida__c} </td>
+            </tr>
+        </apex:repeat>
+    </tbody>
+</apex:page>

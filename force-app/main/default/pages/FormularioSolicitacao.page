@@ -1,0 +1,41 @@
+<apex:page >
+    <style>
+        #conteudo{
+        margin-top:10%;
+        margin-left:10%;
+        margin-right:10%;
+        }
+        #form1{
+        width:500px;
+        }
+    </style>
+    
+    <apex:slds />
+    <div id="conteudo">
+        <center>
+            <div id="form1" class="slds-escope"> 
+                
+                <article class="slds-card">
+                  <div class="slds-card__body slds-card__body_inner slds-form-element__control">
+                        
+                        <apex:form >
+                            <label for="name">Nome: </label><input  id="name" maxlength="80" name="name" size="20" type="text" />   
+                            <label for="email">Email: </label><input  id="email" maxlength="80" name="email" size="20" type="text" />
+                            
+                            <label for="phone">Telefone: </label><input  id="phone" maxlength="40" name="phone" size="20" type="text" />
+                            
+                            <label for="subject">Assunto: </label><input  id="subject" maxlength="80" name="subject" size="20" type="text" />
+                            
+                            <label for="description">Descrição: </label><textarea name="description"></textarea>
+                            
+                            <label for="recordType">Tipo de atendimento: </label><select  id="recordType" name="recordType"><option value="">--None--</option><option value="012Dn000001nH0D">Commercial</option>
+                            <option value="012Dn000001nH03">Technical</option>
+                            </select>
+                        </apex:form>
+                        
+                    </div>
+                </article>
+            </div>
+        </center>
+    </div>
+</apex:page>

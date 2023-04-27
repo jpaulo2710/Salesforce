@@ -1,0 +1,22 @@
+<apex:page standardStylesheets="false" sidebar="false" controller="FaturaController">
+    <style>
+        .centered-button {
+        display: block;
+        margin: 0 auto;
+        }
+        .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+        }
+    </style>
+    <html>
+        <body>       
+            <apex:form >
+                <apex:pageMessages id="showmessage"></apex:pageMessages>
+                <apex:commandButton action="{!sendEmail}" value="Send" reRender="target" 
+                                    styleClass="centered-button btn btn-primary" />           
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

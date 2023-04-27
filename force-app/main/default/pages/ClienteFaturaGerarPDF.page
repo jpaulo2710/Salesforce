@@ -1,0 +1,81 @@
+<apex:page renderAs="pdf" standardController="Fatura__c" extensions="FaturaController">
+    <div style="text-align:center;">
+        <apex:image url="{!$Resource.logoATET}" alt="Logo ATET" style="width: 120px; height: 90px;" />
+    </div>
+    <div style="margin-top: 50px;">
+        <h2 style="font-size: 24px; font-family: 'Open Sans', sans-serif; font-weight: bold; margin-bottom: 20px;">Detalhes da Fatura:</h2>
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="2">
+                <apex:outputField value="{!Fatura__c.Service_Contract__c}" label="Contrato: "/>
+                <apex:outputField value="{!serviceContractList[0].ContractNumber}" label="Numero do Contrato: "/>
+                <apex:outputField value="{!Fatura__c.Name}" label="Número da Fatura: "/>
+                <apex:outputField value="{!Fatura__c.DataEmissao__c}" label="Data de Emissão: "/>
+                <apex:outputField value="{!Fatura__c.DataVencimento__c}" label="Data de Vencimento: "/>
+                <apex:outputField value="{!Fatura__c.MesReferencia__c}" label="Mês de Referência: "/>
+                <apex:outputField value="{!Fatura__c.Status__c}" label="Status:"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </div>
+    <div style="margin-top: 50px;">
+        <h2 style="font-size: 24px; font-family: 'Open Sans', sans-serif; font-weight: bold; margin-bottom: 20px;">Cobranças:</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #1E90FF; color: #FFFFFF; font-size: 16px; font-family: 'Open Sans', sans-serif;">
+                    <th style="padding: 10px; text-align: left;">Descrição</th>
+                    <th style="padding: 10px; padding-left: 20px; text-align: center;">Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!contractLineItems}" var="cli">
+                    <tr style="border-bottom: 1px solid #ccc; font-size: 16px; color: #5b5b5b; font-family: 'Open Sans', sans-serif;">
+                        <td style="padding: 10px; text-align: left;">{!cli.Product2.Name}</td>
+                        <td style="padding: 10px; text-align: right;">R$ {!cli.TotalPrice}</td>
+                    </tr>
+                </apex:repeat>
+                <tr style="font-size: 16px;  font-family: 'Open Sans', sans-serif; font-weight: bold;">
+                    <td style="padding: 10px; text-align: right;">Valor Total:</td>
+                    <td style="padding: 10px; text-align: right;">R$ {!Fatura__c.TotalPagar__c}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="padding: 20px;">
+        <apex:image url="{!$Resource.barcode}" alt="codigo de barras" style="width: 700px; height: 130px;" />
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <p style="font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; padding-bottom:15px; text-align: center;">
+        Relatório de consumo diário dos dados de Internet Residencial
+    </p>
+    <table style="width: 100%; border-collapse: collapse;">
+        
+        <tr style="background-color: #1E90FF; color: #FFFFFF; font-size: 16px; font-family: 'Open Sans', sans-serif;">
+            <th>Data de Consumo</th>
+            <th>Consumo</th>
+            <th>Medida</th>
+        </tr>
+        <apex:repeat value="{!consumoLista}" var="item">
+            <tr style="border-bottom: 1px solid #ccc; font-size: 16px; color: #5b5b5b; font-family: 'Open Sans', sans-serif;">
+                <td style="padding: 10px;">{!DAY(item.DataConsumo__c)}/{!MONTH(item.DataConsumo__c)}/{!YEAR(item.DataConsumo__c)}</td>
+                <td style="padding: 10px;">{!item.Quantidade__c}</td>
+                <td style="padding: 10px;">{!item.Medida__c}</td>
+            </tr>
+        </apex:repeat>
+    </table>
+    <h1 style="border-bottom: 2px solid #1E90FF; padding-top:35px;"></h1>
+    <br/>    
+</apex:page>
